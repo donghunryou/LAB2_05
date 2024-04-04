@@ -175,13 +175,17 @@ void counting_sort(int* array, unsigned int size){
 }
 
 
+
 void bubble_sort(int* array, unsigned int size){
     for (unsigned int i=0; i < size-1; i++)
         for (unsigned int j=0; j<size-1-i; j++)
         {
             if (array[j] < array[j+1])
             {
-                swap(array[j], array[j+1]);
+                int temp;
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
             }
         }
 }
@@ -194,11 +198,7 @@ void insertion_sort(int* array, unsigned int size){
         while(1)
         {
             if (j<0) break;
-            if (array[j] <= temp) 
-                {
-       
-                    break;
-                }
+            if (array[j] <= temp) break;
             array[j+1]=array[j];
             j--;
         }
@@ -226,4 +226,3 @@ void selection_sort(int* array, unsigned int size){
         array[min_idx] = temp;
     }
 }
-
